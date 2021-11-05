@@ -6,10 +6,13 @@ import { useState } from "react"
 import { Button, Grid, Typography } from "@mui/material"
 import QuizShowResult from "./Components/QuizShowResult"
 import { Timer } from "./Components/Timer"
+import img from "./images/Quiz.jpg"
+import { borderRadius } from "@mui/system"
 // import DateRangeIcon from '@mui/icons-material/DateRange';   
 
 
 const QuizApp = () => {
+   const [bg,setBg] = useState(false)
     const [ date ,setDate] = useState()
     const [showResult,setShowResult] = useState(false)
     const [marks,setMarks] = useState(0)
@@ -151,6 +154,37 @@ const nextBtn = () => {
 
       
     return (
+      <div >
+        {bg === false ?
+          
+          <div id="bg">
+            <img src={img} alt="f"  />
+
+             <Button
+             style={{
+               textAlign:"center",
+               position:"absolute",
+               left:"40%",
+               top:"85%",
+               backgroundColor:"Red",
+               color:"white",
+               fontSize:"1.5rem",
+               width:"300px",
+               height:"70px",
+               boxShadow:"2px 2px 10px 2px Darkred",
+
+
+
+             }}
+             className="btn"
+                onClick={()=> setBg(true)}
+                >start Quiz</Button>
+          </div>
+
+        :
+
+
+
         <div id="Quiz">
             {showResult == false ? <>
 
@@ -208,6 +242,9 @@ const nextBtn = () => {
              
              
         </div>
+}
+        </div>
+          
     )
 }
 
